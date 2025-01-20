@@ -136,8 +136,8 @@ public class VistaGUI extends JFrame {
         // Botones redondeados personalizados
         powerBtn = new RoundButton("LICUADORA PRENDIDA", new Color(0, 122, 204));
         llenarBtn = new RoundButton("CARGAR INGREDIENTES", new Color(0, 180, 160));
-        velocidadBtn = new RoundButton("AUMENTAR POTENCIA", new Color(0, 160, 200));
-        vaciarBtn = new RoundButton("VACIAR LICUADORA", new Color(207, 89, 0));
+        velocidadBtn = new RoundButton("AUMENTAR POTENCIA", new Color(50, 205, 50));
+        vaciarBtn = new RoundButton("VACIAR LICUADORA", new Color(60, 224, 208));
 
         // Añadir botones al panel
         buttonPanel.add(powerBtn);
