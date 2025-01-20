@@ -44,7 +44,7 @@ public class VistaGUI extends JFrame {
 
 
     public VistaGUI() {
-        this.licuadora = new LicuadoraNinja();
+        this.licuadora = new LicuadoraNinja(); //ESTA ES LA LINEA QUE DEBE CAMBIARSEE
         this.sonido = new SonidoLicuadoraNinja();
         setupGUI();
         initGlowEffect();
