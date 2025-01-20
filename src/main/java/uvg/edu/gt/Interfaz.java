@@ -5,6 +5,8 @@ package uvg.edu.gt;
  * Fecha: 16 de enero de 2025
  * Interfaz para el sistema de llenado de tanques.
  */
+
+
 public interface Interfaz {
 
     /**
