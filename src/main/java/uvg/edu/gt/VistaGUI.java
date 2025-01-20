@@ -1,6 +1,5 @@
 package uvg.edu.gt;
-
-//------Importación SWING------
+//importación del paquete de sonido
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -27,6 +26,8 @@ import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
 
+
+
 //------Clase VistaGUI-----------------------------------
 public class VistaGUI extends JFrame {
     private Interfaz licuadora;
@@ -37,13 +38,18 @@ public class VistaGUI extends JFrame {
     private Timer glowTimer;
     private float glowAlpha = 0.0f;
     private boolean glowIncreasing = true;
+    private SonidoLicuadoraNinja sonido;
+
 
     public VistaGUI() {
         this.licuadora = new LicuadoraNinja();
+        this.sonido = new SonidoLicuadoraNinja();
         setupGUI();
         initGlowEffect();
     }
 
+
+    // Efecto de brillo en la barra de velocidad
     private void initGlowEffect() {
         glowTimer = new Timer(50, e -> {
             if (glowIncreasing) {
@@ -64,6 +70,8 @@ public class VistaGUI extends JFrame {
         glowTimer.start();
     }
 
+
+    // Configuración de la interfaz gráfica
     private void setupGUI() {
         setTitle("Licuadora Ninja - Control Center");
         setSize(500, 600);
@@ -219,6 +227,7 @@ public class VistaGUI extends JFrame {
             estadoLabel.setText("LICUADORA ENCENDIDA");
             estadoLabel.setForeground(new Color(0, 150, 255));
             powerBtn.setEnabled(false);
+            sonido.playStartSound();
         });
     //Boton de llenar la licuadora
         llenarBtn.addActionListener(e -> {
