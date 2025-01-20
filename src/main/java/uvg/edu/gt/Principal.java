@@ -6,6 +6,7 @@ import javax.swing.SwingUtilities;
 public class Principal {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
+            //LINEA QUE SE PUEDE INTERCAMBIAR AMIGOS GRAAHHHH DEKFNAKDFNASFKDFKAFNAKFDNFJANFJ
             VistaGUI vista = new VistaGUI();
             vista.setVisible(true);
         });

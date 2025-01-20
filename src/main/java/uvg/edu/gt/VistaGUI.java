@@ -1,5 +1,7 @@
 package uvg.edu.gt;
-//importación del paquete de sonido
+
+
+//-----importación del paquete de sonido------
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -73,7 +75,7 @@ public class VistaGUI extends JFrame {
 
     // Configuración de la interfaz gráfica
     private void setupGUI() {
-        setTitle("Licuadora Ninja - Control Center");
+        setTitle("Licuadora Ninja - Grupo 4");
         setSize(500, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -93,7 +95,6 @@ public class VistaGUI extends JFrame {
             }
         };
 
-        // Layout principal con bordes y espaciado
         mainPanel.setLayout(new BorderLayout(20, 20));
         mainPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
 
@@ -113,7 +114,7 @@ public class VistaGUI extends JFrame {
         velocidadBar = new JProgressBar(0, 10) {
             @Override
             protected void paintComponent(Graphics g) {
-                
+                super.paintComponent(g); 
             }
         };
 
@@ -133,10 +134,10 @@ public class VistaGUI extends JFrame {
         buttonPanel.setOpaque(false);
 
         // Botones redondeados personalizados
-        powerBtn = new RoundButton("LICUADORA PRENDIDA", new Color(0, 150, 255));
+        powerBtn = new RoundButton("LICUADORA PRENDIDA", new Color(0, 122, 204));
         llenarBtn = new RoundButton("CARGAR INGREDIENTES", new Color(0, 180, 160));
         velocidadBtn = new RoundButton("AUMENTAR POTENCIA", new Color(0, 160, 200));
-        vaciarBtn = new RoundButton("VACIAR LICUADORA", new Color(220, 50, 50));
+        vaciarBtn = new RoundButton("VACIAR LICUADORA", new Color(207, 89, 0));
 
         // Añadir botones al panel
         buttonPanel.add(powerBtn);
@@ -151,6 +152,12 @@ public class VistaGUI extends JFrame {
         // Añadir acciones a los botones
         setupButtonActions();
         setContentPane(mainPanel);
+    }
+
+    private static class velocidadBar {
+
+        public velocidadBar() {
+        }
     }
 
     // Clase para botones redondeados con efecto hover
@@ -285,5 +292,10 @@ public class VistaGUI extends JFrame {
         dialog.setVisible(true);
     }
 
+    // Método para actualizar la velocidad
+    public void actualizarVelocidad(int velocidad) {
+        velocidadLabel.setText("VELOCIDAD ACTUAL: " + velocidad);
+        velocidadBar.setValue(velocidad);
+    }
 
 }
