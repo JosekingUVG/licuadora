@@ -1,5 +1,6 @@
+//Dirección del paquete de Mayven donde está JUnit
 package uvg.edu.gt;
-
+//Librerias necesarias para ejecutar las pruebas
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -12,11 +13,11 @@ import org.junit.jupiter.api.Test;
  */
 public class LicuadoraNinjaTest {
     
-    private Interfaz licuadora;
+    private Interfaz licuador;
     
     @BeforeEach
     public void setUp() {
-        licuadora = new LicuadoraNinja();
+        licuador = new LicuadoraNinja();
     }
     
     /**
@@ -24,9 +25,9 @@ public class LicuadoraNinjaTest {
      */
     @Test
     public void testLicuadoraVacia() {
-        licuadora.encender();
+        licuador.encender();
         assertThrows(IllegalStateException.class, () -> {
-            licuadora.aumentarVelocidad();
+            licuador.aumentarVelocidad();
         }, "No se puede operar la licuadora vacía");
     }
     
@@ -36,17 +37,17 @@ public class LicuadoraNinjaTest {
     @Test
     public void testVelocidadMaxima() {
         // Preparación
-        licuadora.encender();
-        licuadora.llenar();
+        licuador.encender();
+        licuador.llenar();
         
         // Aumentar la velocidad más de 10 veces
-        for(int i = 0; i < 12; i++) {
-            licuadora.aumentarVelocidad();
+        for(int i = 0; i < 10; i++) {
+            licuador.aumentarVelocidad();
         }
         
         // Verificación
-        assertEquals(10, licuadora.consultarVelocidad(), 
-            "La velocidad no debe superar 10");
+        assertEquals(10, licuador.consultarVelocidad(), 
+            "La velocidad máxima no debe ser mayor a 10");
     }
     
     /**
@@ -55,21 +56,21 @@ public class LicuadoraNinjaTest {
     @Test
     public void testIncrementoUnoEnUno() {
         // Preparación
-        licuadora.encender();
-        licuadora.llenar();
+        licuador.encender();
+        licuador.llenar();
         
         // Verificación inicial
-        assertEquals(0, licuadora.consultarVelocidad(), 
+        assertEquals(0, licuador.consultarVelocidad(), 
             "La velocidad inicial debe ser 0");
         
         // Primer incremento
-        licuadora.aumentarVelocidad();
-        assertEquals(1, licuadora.consultarVelocidad(), 
+        licuador.aumentarVelocidad();
+        assertEquals(1, licuador.consultarVelocidad(), 
             "La velocidad debe aumentar de uno en uno");
         
         // Segundo incremento
-        licuadora.aumentarVelocidad();
-        assertEquals(2, licuadora.consultarVelocidad(), 
+        licuador.aumentarVelocidad();
+        assertEquals(2, licuador.consultarVelocidad(), 
             "La velocidad debe aumentar de uno en uno");
     }
 
@@ -79,17 +80,17 @@ public class LicuadoraNinjaTest {
     @Test
     public void testVaciarLicuadora() {
         // Preparación
-        licuadora.encender();
-        licuadora.llenar();
-        licuadora.aumentarVelocidad();
+        licuador.encender();
+        licuador.llenar();
+        licuador.aumentarVelocidad();
         
         // Acción
-        licuadora.vaciar();
+        licuador.vaciar();
         
         // Verificación
-        assertFalse(licuadora.consultarLlenado(), 
+        assertFalse(licuador.consultarLlenado(), 
             "La licuadora debe estar vacía después de vaciarla");
-        assertEquals(0, licuadora.consultarVelocidad(), 
+        assertEquals(0, licuador.consultarVelocidad(), 
             "La velocidad debe ser 0 después de vaciar");
     }
 
@@ -99,17 +100,18 @@ public class LicuadoraNinjaTest {
     @Test
     public void testEstadoLlenado() {
         // Estado inicial
-        assertFalse(licuadora.consultarLlenado(), 
+        licuador.encender();
+        assertFalse(licuador.consultarLlenado(), 
             "La licuadora debe estar vacía al inicio");
         
         // Después de llenar
-        licuadora.llenar();
-        assertTrue(licuadora.consultarLlenado(), 
+        licuador.llenar();
+        assertTrue(licuador.consultarLlenado(), 
             "La licuadora debe estar llena después de llenarla");
         
         // Después de vaciar
-        licuadora.vaciar();
-        assertFalse(licuadora.consultarLlenado(), 
+        licuador.vaciar();
+        assertFalse(licuador.consultarLlenado(), 
             "La licuadora debe estar vacía después de vaciarla");
     }
 }

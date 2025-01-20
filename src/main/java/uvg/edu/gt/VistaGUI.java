@@ -16,7 +16,7 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
-
+//-------Librerias swing para usar elementos de windowsFrame---------
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -42,7 +42,7 @@ public class VistaGUI extends JFrame {
     private boolean glowIncreasing = true;
     private SonidoLicuadoraNinja sonido;
 
-
+    //Constructor
     public VistaGUI() {
         this.licuadora = new LicuadoraNinja(); //ESTA ES LA LINEA QUE DEBE CAMBIARSEE GRAAHHHHHHH
         this.sonido = new SonidoLicuadoraNinja();
@@ -134,7 +134,7 @@ public class VistaGUI extends JFrame {
         buttonPanel.setOpaque(false);
 
         // Botones redondeados personalizados
-        powerBtn = new RoundButton("LICUADORA PRENDIDA", new Color(0, 122, 204));
+        powerBtn = new RoundButton("LICUADORA ENCENDIDA", new Color(0, 122, 204));
         llenarBtn = new RoundButton("CARGAR INGREDIENTES", new Color(0, 180, 160));
         velocidadBtn = new RoundButton("AUMENTAR POTENCIA", new Color(50, 205, 50));
         vaciarBtn = new RoundButton("VACIAR LICUADORA", new Color(60, 224, 208));
