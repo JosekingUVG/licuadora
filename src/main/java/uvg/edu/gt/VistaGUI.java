@@ -16,7 +16,7 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
-//-------Librerias swing para usar elementos de windowsFrame---------
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -227,15 +227,31 @@ public class VistaGUI extends JFrame {
     }
 
 //------------------------ACCIONES--------------------------------------
-    //Boton de encender licuadora 
-    private void setupButtonActions() {
-        powerBtn.addActionListener(e -> {
-            licuadora.encender();
+
+
+   //Boton de encender licuadora 
+   private void setupButtonActions() {
+    powerBtn.addActionListener(e -> {
+        licuadora.encender();
+        if (powerBtn.getText().equals("APAGAR LICUADORA")) {
+            // Si dice "APAGAR", significa que está encendida y queremos apagarla
+            estadoLabel.setText("LICUADORA APAGADA");
+            estadoLabel.setForeground(new Color(100, 100, 100));
+            powerBtn.setText("LICUADORA PRENDIDA");
+            velocidadLabel.setText("VELOCIDAD ACTUAL: 0");
+            velocidadBar.setValue(0);
+            velocidadBtn.setEnabled(false);
+            sonido.stopSound();
+        } else {
+            // Si dice otra cosa, está apagada y queremos encenderla
             estadoLabel.setText("LICUADORA ENCENDIDA");
             estadoLabel.setForeground(new Color(0, 150, 255));
-            powerBtn.setEnabled(false);
+            powerBtn.setText("APAGAR LICUADORA");
             sonido.playStartSound();
-        });
+        }
+    });
+    
+    
     //Boton de llenar la licuadora
         llenarBtn.addActionListener(e -> {
             licuadora.llenar();

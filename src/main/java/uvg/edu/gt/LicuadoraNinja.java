@@ -17,13 +17,16 @@ public class LicuadoraNinja implements Interfaz {
     @Override
     public void encender() {
         if (encendido) {
-            System.out.println("La licuadora estaba encendida. Ahora se apagará.");
-            this.encendido = false; // Apagar la licuadora
-            throw new IllegalStateException("La licuadora ha sido apagada automáticamente.");
+            // Si está encendida, la apagamos
+            this.encendido = false;
+            this.velocidad = 0;
+            System.out.println("La licuadora se ha apagado.");
+        } else {
+            // Si está apagada, la encendemos
+            this.encendido = true;
+            this.velocidad = 0;
+            System.out.println("La licuadora Ninja se ha encendido.");
         }
-        this.encendido = true; // Encender la licuadora
-        this.velocidad = 0;    // Reiniciar la velocidad
-        System.out.println("La licuadora Ninja se ha encendido.");
     }
 
     @Override
