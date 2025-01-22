@@ -6,7 +6,6 @@ public class LicuadoraNinja implements Interfaz {
     private int velocidad;
     private boolean encendido;
     private boolean lleno;
-    private static final int VELOCIDAD_MAXIMA = 10;
 
     public LicuadoraNinja() {
         this.velocidad = 0;
@@ -31,9 +30,6 @@ public class LicuadoraNinja implements Interfaz {
 
     @Override
     public void llenar() {
-        if (!encendido) {
-            throw new IllegalStateException("Debe encender la licuadora primero");
-        }
         if (lleno) {
             throw new IllegalStateException("La licuadora ya está llena");
         }
@@ -41,19 +37,19 @@ public class LicuadoraNinja implements Interfaz {
         System.out.println("La licuadora Ninja se ha llenado.");
     }
 
+
+    
     @Override
     public void aumentarVelocidad() {
-        if (!encendido) {
-            throw new IllegalStateException("La licuadora debe estar encendida");
-        }
         if (!lleno) {
-            throw new IllegalStateException("No se puede operar la licuadora vacía");
+            System.out.println("No se puede operar la licuadora vacía");
         }
-        if (velocidad >= VELOCIDAD_MAXIMA) {
-            throw new IllegalStateException("Ya está en velocidad máxima");
+        if (velocidad < 10) {
+            velocidad++;
+            System.out.println("Velocidad aumentada a: " + velocidad);
+        } else {
+            System.out.println("Ya ha alcanzado la velocidad máxima");
         }
-        velocidad++;
-        System.out.println("Velocidad aumentada. Velocidad actual: " + velocidad);
     }
 
     @Override
@@ -73,14 +69,12 @@ public class LicuadoraNinja implements Interfaz {
 
     @Override
     public void vaciar() {
-        if (!encendido) {
-            throw new IllegalStateException("Debe encender la licuadora primero");
-        }
         if (!lleno) {
-            throw new IllegalStateException("La licuadora ya está vacía");
+            System.out.println("La licuadora ya está vacía");
+        } else {
+            this.lleno = false;
+            this.velocidad = 0;
+            System.out.println("La licuadora Ninja se ha vaciado.");
         }
-        this.lleno = false;
-        this.velocidad = 0;
-        System.out.println("La licuadora Ninja se ha vaciado.");
     }
 }

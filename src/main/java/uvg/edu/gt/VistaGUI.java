@@ -42,7 +42,7 @@ public class VistaGUI extends JFrame {
     private boolean glowIncreasing = true;
     private SonidoLicuadoraNinja sonido;
 
-    //Constructor
+    //---Constructor-------
     public VistaGUI() {
         this.licuadora = new LicuadoraNinja(); //ESTA ES LA LINEA QUE DEBE CAMBIARSEE GRAAHHHHHHH
         this.sonido = new SonidoLicuadoraNinja();
@@ -51,7 +51,7 @@ public class VistaGUI extends JFrame {
     }
 
 
-    // Efecto de brillo en la barra de velocidad
+    //------Efecto de brillo en la barra de velocidad------
     private void initGlowEffect() {
         glowTimer = new Timer(50, e -> {
             if (glowIncreasing) {
@@ -73,7 +73,7 @@ public class VistaGUI extends JFrame {
     }
 
 
-    // Configuración de la interfaz gráfica
+    // -----Configuración de la interfaz gráfica----------------
     private void setupGUI() {
         setTitle("Licuadora Ninja - Grupo 4");
         setSize(500, 600);
@@ -81,7 +81,7 @@ public class VistaGUI extends JFrame {
         setLocationRelativeTo(null);
         setBackground(Color.WHITE);
 
-        // Panel principal con fondo blanco y bordes suaves
+        // ----Panel principal con fondo blanco y bordes suaves----
         JPanel mainPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -98,7 +98,7 @@ public class VistaGUI extends JFrame {
         mainPanel.setLayout(new BorderLayout(20, 20));
         mainPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
 
-        // Panel de estado
+        // ---Panel de estado----
         JPanel statusPanel = new JPanel(new BorderLayout(15, 15));
         statusPanel.setOpaque(false);
         
@@ -133,7 +133,7 @@ public class VistaGUI extends JFrame {
         JPanel buttonPanel = new JPanel(new GridLayout(2, 2, 20, 20));
         buttonPanel.setOpaque(false);
 
-        // Botones redondeados personalizados
+        // ----Botones redondeados personalizados----
         powerBtn = new RoundButton("LICUADORA ENCENDIDA", new Color(0, 122, 204));
         llenarBtn = new RoundButton("CARGAR INGREDIENTES", new Color(0, 180, 160));
         velocidadBtn = new RoundButton("AUMENTAR POTENCIA", new Color(50, 205, 50));
