@@ -253,12 +253,21 @@ public class VistaGUI extends JFrame {
     
     
     //Boton de llenar la licuadora
-        llenarBtn.addActionListener(e -> {
+    llenarBtn.addActionListener(e -> {
+        try {
             licuadora.llenar();
-            estadoLabel.setText("COMIDA CARGADA");
-            estadoLabel.setForeground(new Color(0, 180, 160));
-            velocidadBtn.setEnabled(true);
-        });
+            if (licuadora.consultarLlenado()) {
+                estadoLabel.setText("COMIDA CARGADA");
+                estadoLabel.setForeground(new Color(0, 180, 160));
+                velocidadBtn.setEnabled(true);
+            } else {
+                estadoLabel.setText("LA LICUADORA YA ESTÁ LLENA");
+                estadoLabel.setForeground(new Color(220, 50, 50));
+            }
+        } catch (Exception ex) {
+            showErrorDialog("No se pudo cargar los ingredientes");
+        }
+    });
     //Boton de aumentar la velocidad de la licuadora
         velocidadBtn.addActionListener(e -> {
             try {

@@ -31,12 +31,12 @@ public class LicuadoraNinja implements Interfaz {
     @Override
     public void llenar() {
         if (lleno) {
-            throw new IllegalStateException("La licuadora ya está llena");
+            System.out.println("La licuadora ya está llena");
+        } else {
+            this.lleno = true;
+            System.out.println("La licuadora Ninja se ha llenado.");
         }
-        this.lleno = true;
-        System.out.println("La licuadora Ninja se ha llenado.");
     }
-
 
     
     @Override
