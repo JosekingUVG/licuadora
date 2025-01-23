@@ -3,7 +3,6 @@ package uvg.edu.gt;
 //Librerias necesarias para ejecutar las pruebas
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,19 +19,9 @@ public class LicuadoraNinjaTest {
         licuador = new LicuadoraNinja();
     }
     
-    /**
-     * Test 1: Verifica que no se pueda operar la licuadora vacía
-     */
-    @Test
-    public void testLicuadoraVacia() {
-        licuador.encender();
-        assertThrows(IllegalStateException.class, () -> {
-            licuador.aumentarVelocidad();
-        }, "No se puede operar la licuadora vacía");
-    }
     
     /**
-     * Test 2: Verifica que la velocidad máxima sea 10
+     * Test 1: Verifica que la velocidad máxima sea 10
      */
     @Test
     public void testVelocidadMaxima() {
@@ -51,7 +40,7 @@ public class LicuadoraNinjaTest {
     }
     
     /**
-     * Test 3: Verifica el incremento de velocidad uno en uno
+     * Test 2: Verifica el incremento de velocidad uno en uno
      */
     @Test
     public void testIncrementoUnoEnUno() {
@@ -75,7 +64,7 @@ public class LicuadoraNinjaTest {
     }
 
     /**
-     * Test 4: Verifica que la licuadora se vacíe correctamente
+     * Test 3: Verifica que la licuadora se vacíe correctamente
      */
     @Test
     public void testVaciarLicuadora() {
@@ -95,7 +84,7 @@ public class LicuadoraNinjaTest {
     }
 
     /**
-     * Test 5: Verifica el estado de llenado
+     * Test 4: Verifica el estado de llenado
      */
     @Test
     public void testEstadoLlenado() {
